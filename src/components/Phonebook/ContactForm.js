@@ -1,7 +1,13 @@
 import { Component } from "react";
 import s from "./Phonebook.module.css";
+// import PropTypes from "prop-types";
 
 class ContactForm extends Component {
+  static defaultProps = {
+    name: "",
+    number: "",
+  };
+
   state = {
     name: "",
     number: "",
@@ -78,5 +84,14 @@ class ContactForm extends Component {
     );
   }
 }
+
+// ContactForm.prototype = {
+//   //   id: PropTypes.string.isRequired,
+//   name: PropTypes.string.isRequired,
+//   number: PropTypes.number.isRequired,
+//   addContact: PropTypes.func.isRequired,
+// };
+
+// PropTypes.checkPropTypes(ContactForm);
 
 export default ContactForm;

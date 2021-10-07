@@ -1,4 +1,5 @@
 import s from "./Phonebook.module.css";
+import PropTypes from "prop-types";
 
 function ContactElement({ name, number }) {
   return (
@@ -8,5 +9,12 @@ function ContactElement({ name, number }) {
     </p>
   );
 }
+
+ContactElement.prototype = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.number.isRequired,
+};
+
+PropTypes.checkPropTypes(ContactElement);
 
 export default ContactElement;

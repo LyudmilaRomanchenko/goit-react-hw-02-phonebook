@@ -1,6 +1,6 @@
 import ContactElement from "./ContactElement";
 import s from "./Phonebook.module.css";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 function ContactList({ contacts, deleteContact }) {
   console.log(contacts);
@@ -22,13 +22,14 @@ function ContactList({ contacts, deleteContact }) {
   );
 }
 
-// ContactList.prototype = {
-//   friends: PropTypes.shape({
-//     avatar: PropTypes.string.isRequired,
-//     name: PropTypes.string.isRequired,
-//     isOnline: PropTypes.bool.isRequired,
-//     id: PropTypes.number.isRequired,
-//   }),
-// };
+ContactList.prototype = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.number.isRequired,
+
+  deleteContact: PropTypes.func.isRequired,
+};
+
+PropTypes.checkPropTypes(ContactList);
 
 export default ContactList;

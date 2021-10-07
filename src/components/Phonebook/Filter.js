@@ -1,5 +1,6 @@
 // import React from "react";
 import s from "./Phonebook.module.css";
+import PropTypes from "prop-types";
 
 function Filter({ value, onChange }) {
   return (
@@ -14,5 +15,12 @@ function Filter({ value, onChange }) {
     </label>
   );
 }
+
+Filter.prototype = {
+  filter: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
+PropTypes.checkPropTypes(Filter);
 
 export default Filter;
