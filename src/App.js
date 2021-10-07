@@ -1,25 +1,75 @@
-import logo from "./logo.svg";
-import "./App.css";
+// import logo from "./logo.svg";
+// import "./App.css";
+import { Component } from "react";
+import { v4 as uuidv4 } from "uuid";
+import contacts from "./components/Phonebook/contacts.json";
+import ContactList from "./components/Phonebook/ContactList";
+import ContactForm from "./components/Phonebook/ContactForm";
+import Filter from "./components/Phonebook/Filter";
+import s from "./components/Phonebook/Phonebook.module.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    contacts: contacts,
+    filter: "",
+  };
+
+  addContact = (name, number) => {
+    const contact = {
+      id: uuidv4(),
+      name: name,
+      number: number,
+    };
+
+    this.setState((prevState) => ({
+      contacts: [contact, ...prevState.contacts],
+    }));
+  };
+
+  changeFilter = (e) => {
+    console.log(e.currentTarget.value);
+    this.setState({ filter: e.currentTarget.value });
+  };
+
+  getVisibleContact = () => {
+    const { filter, contacts } = this.state;
+    console.log(contacts);
+    const normalizeTodo = filter.toLowerCase();
+    return contacts.filter((contact) =>
+      contact.name.toLowerCase().includes(normalizeTodo)
+    );
+  };
+
+  deleteContact = (todoId) => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.filter((contact) => contact.id !== todoId),
+    }));
+  };
+
+  render() {
+    const { filter } = this.state;
+    const visibleContact = this.getVisibleContact();
+    return (
+      <div className={s.container}>
+        <div className={s.phonebookContainer}>
+          <h1>Phonebook</h1>
+          <ContactForm
+            addContact={this.addContact}
+            contacts={this.state.contacts}
+          />
+        </div>
+
+        <div className={s.contactsContainer}>
+          <h2>Contacts</h2>
+          <Filter value={filter} onChange={this.changeFilter} />
+          <ContactList
+            contacts={visibleContact}
+            deleteContact={this.deleteContact}
+          />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
