@@ -1,11 +1,17 @@
 import { Component } from "react";
 import s from "./Phonebook.module.css";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 class ContactForm extends Component {
   static defaultProps = {
-    name: "",
-    number: "",
+    contacts: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.number.isRequired,
+      }).isRequired
+    ),
+    addContact: PropTypes.func.isRequired,
   };
 
   state = {
@@ -85,13 +91,19 @@ class ContactForm extends Component {
   }
 }
 
+export default ContactForm;
+
 // ContactForm.prototype = {
-//   //   id: PropTypes.string.isRequired,
-//   name: PropTypes.string.isRequired,
-//   number: PropTypes.number.isRequired,
+//   contacts: PropTypes.arrayOf(
+//     PropTypes.checkPropTypes(
+//       PropTypes.shape({
+//         id: PropTypes.string.isRequired,
+//         name: PropTypes.string.isRequired,
+//         number: PropTypes.number.isRequired,
+//       }).isRequired
+//     )
+//   ),
 //   addContact: PropTypes.func.isRequired,
 // };
 
 // PropTypes.checkPropTypes(ContactForm);
-
-export default ContactForm;

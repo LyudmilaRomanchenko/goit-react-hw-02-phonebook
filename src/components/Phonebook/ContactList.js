@@ -8,14 +8,12 @@ function ContactList({ contacts, deleteContact }) {
     <ul className={s.list}>
       {contacts.map(({ id, name, number }) => (
         <li key={id} className={s.item}>
-          <ContactElement name={name} number={number} />
-          <button
-            className={s.button}
-            type="button"
-            onClick={() => deleteContact(id)}
-          >
-            Delete
-          </button>
+          <ContactElement
+            id={id}
+            name={name}
+            number={number}
+            deleteContact={deleteContact}
+          />
         </li>
       ))}
     </ul>
