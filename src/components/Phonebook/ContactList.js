@@ -1,5 +1,5 @@
 import ContactElement from "./ContactElement";
-import s from "./Phonebook.module.css";
+import s from "./ContactList.module.css";
 import PropTypes from "prop-types";
 
 function ContactList({ contacts, deleteContact }) {

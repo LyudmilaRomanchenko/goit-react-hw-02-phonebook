@@ -12,16 +12,6 @@
   /* outline: 1px solid rgb(179, 169, 24); */
 }
 
-.lableContact {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: 500;
-}
-
-.inputContact {
-  display: block;
-}
-
 .contactsContainer {
   background-color: rgb(238, 235, 235);
   padding: 20px 40px 20px 40px;
@@ -31,31 +21,4 @@
 .list {
   text-decoration: none;
   /* outline: 1px solid red; */
-}
-
-.item {
-  display: flex;
-  align-items: center;
-}
-
-.number {
-  padding-left: 10px;
-  padding-right: 20px;
-}
-
-.button {
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: rgb(158, 213, 230);
-}
-
-.findLable {
-  font-weight: 500;
-}
-
-.find {
-  display: block;
-  margin-top: 10px;
 }

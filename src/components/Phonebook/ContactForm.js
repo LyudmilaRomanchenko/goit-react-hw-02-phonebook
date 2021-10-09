@@ -1,5 +1,5 @@
 import { Component } from "react";
-import s from "./Phonebook.module.css";
+import s from "./ContactForm.module.css";
 import PropTypes from "prop-types";
 
 class ContactForm extends Component {

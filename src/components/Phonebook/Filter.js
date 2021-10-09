@@ -1,5 +1,5 @@
 // import React from "react";
-import s from "./Phonebook.module.css";
+import s from "./Filter.module.css";
 import PropTypes from "prop-types";
 
 function Filter({ value, onChange }) {

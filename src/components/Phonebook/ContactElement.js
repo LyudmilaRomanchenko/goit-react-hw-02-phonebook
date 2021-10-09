@@ -1,10 +1,10 @@
-import s from "./Phonebook.module.css";
+import s from "./ContactElement.module.css";
 import PropTypes from "prop-types";
 
 function ContactElement({ id, name, number, deleteContact }) {
   return (
     <p>
-      <span className={s.name}>{name}</span>:
+      <span>{name}:</span>
       <span className={s.number}>{number}</span>
       <button
         className={s.button}
