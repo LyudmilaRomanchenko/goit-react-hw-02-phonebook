@@ -2,11 +2,11 @@
 // import "./App.css";
 import { Component } from "react";
 import { v4 as uuidv4 } from "uuid";
-import contacts from "./components/Phonebook/contacts.json";
-import ContactList from "./components/Phonebook/ContactList";
-import ContactForm from "./components/Phonebook/ContactForm";
-import Filter from "./components/Phonebook/Filter";
-import s from "./components/Phonebook/Phonebook.module.css";
+import contacts from "./contacts.json";
+import ContactList from "./ContactList";
+import ContactForm from "./ContactForm";
+import Filter from "./Filter";
+import s from "./Phonebook.module.css";
 
 class App extends Component {
   state = {

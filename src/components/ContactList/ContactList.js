@@ -1,4 +1,4 @@
-import ContactElement from "./ContactElement";
+import ContactElement from "../ContactElement";
 import s from "./ContactList.module.css";
 import PropTypes from "prop-types";
 
